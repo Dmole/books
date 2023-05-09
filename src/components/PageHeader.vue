@@ -1,6 +1,14 @@
 <template>
   <div
-    class="px-4 flex justify-between items-center h-row-largest flex-shrink-0"
+    class="
+      px-4
+      py-2
+      flex
+      justify-between
+      items-center
+      h-row-largest
+      flex-shrink-0
+    "
     :class="[
       border ? 'border-b' : '',
       platform !== 'Windows' ? 'window-drag' : '',
@@ -13,13 +21,54 @@
         :class="spacerClass"
       />
     </Transition>
-    <h1
-      class="text-xl font-semibold select-none whitespace-nowrap"
-      v-if="title"
+
+    <div
+      class="flex items-center window-no-drag gap-4 me-auto"
+      :class="platform === 'Mac' && languageDirection === 'rtl' ? 'me-18' : ''"
     >
-      {{ title }}
-    </h1>
-    <div class="flex items-stretch window-no-drag gap-2">
+      <div class="flex">
+        <SearchBar v-if="!hideSearch" />
+        <BackLink
+          v-if="backLink"
+          class="
+            border-l border-r border-white
+            window-no-drag
+            rtl-rotate-180
+            py-2
+          "
+        />
+        <a
+          class="
+            rounded-l-none
+            cursor-pointer
+            font-semibold
+            flex
+            items-center
+            bg-gray-200
+            text-gray-700
+            px-3
+            rounded-md
+          "
+          @click="$router.forward()"
+        >
+          <feather-icon name="chevron-right" class="w-4 h-4" />
+        </a>
+      </div>
+      <h1
+        class="
+          text-xl
+          font-semibold
+          select-none
+          whitespace-nowrap
+          border-l
+          pl-4
+        "
+        v-if="title"
+      >
+        {{ title }}
+      </h1>
+    </div>
+    <div class="flex items-stretch window-no-drag gap-4">
       <slot name="left" />
     </div>
     <div
@@ -27,9 +76,6 @@
       :class="platform === 'Mac' && languageDirection === 'rtl' ? 'me-18' : ''"
     >
       <slot />
-      <div class="border-e" v-if="showBorder" />
-      <BackLink v-if="backLink" class="window-no-drag rtl-rotate-180" />
-      <SearchBar v-if="!hideSearch" />
     </div>
   </div>
 </template>

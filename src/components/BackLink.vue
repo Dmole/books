@@ -9,7 +9,6 @@
       bg-gray-200
       text-gray-700
       px-3
-      rounded-md
     "
     @click="$router.back()"
   >

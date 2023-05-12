@@ -511,6 +511,22 @@
         ],
         "locale": "fr-CM"
     },
+    "Canada (French)": 
+    {
+        "code": "ca",
+        "currency": "CAD",
+        "currency_fraction": "Cent",
+        "currency_fraction_units": 100,
+        "currency_name": "Canadian Dollar",
+        "currency_symbol": "$",
+        "date_format": "yyyy-MM-dd",
+        "timezones": 
+        [
+            "America/Blanc-Sablon",
+            "America/Montreal"
+        ],
+        "locale": "fr-CA"
+    },
     "Canada": 
     {
         "code": "ca",
@@ -519,11 +535,10 @@
         "currency_fraction_units": 100,
         "currency_name": "Canadian Dollar",
         "currency_symbol": "$",
-        "date_format": "MM-dd-yyyy",
+        "date_format": "yyyy-MM-dd",
         "timezones": 
         [
             "America/Atikokan",
-            "America/Blanc-Sablon",
             "America/Cambridge_Bay",
             "America/Creston",
             "America/Dawson",
@@ -535,7 +550,6 @@
             "America/Inuvik",
             "America/Iqaluit",
             "America/Moncton",
-            "America/Montreal",
             "America/Nipigon",
             "America/Pangnirtung",
             "America/Rainy_River",
@@ -551,8 +565,6 @@
             "America/Winnipeg",
             "America/Yellowknife"
         ],
-        "fiscal_year_start": "04-01",
-        "fiscal_year_end": "03-31",
         "locale": "en-CA"
     },
     "Cape Verde": 

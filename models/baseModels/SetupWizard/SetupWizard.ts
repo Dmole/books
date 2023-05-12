@@ -21,37 +21,22 @@ function getCurrencyList(): { countryCode: string; name: string }[] {
 
 export function getCOAList() {
   return [
-    { name: t`Standard Chart of Accounts`, countryCode: '' },
+    { name: t`Standard Chart of Accounts`, locale: '' },
 
-    { countryCode: 'ae', name: 'U.A.E - Chart of Accounts' },
+    { locale: 'en-ae', name: 'U.A.E - Chart of Accounts' },
     {
-      countryCode: 'ca',
+      locale: 'fr-ca',
       name: 'Canada - Plan comptable pour les provinces francophones',
     },
-    { countryCode: 'gt', name: 'Guatemala - Cuentas' },
-    { countryCode: 'hu', name: 'Hungary - Chart of Accounts' },
-    { countryCode: 'id', name: 'Indonesia - Chart of Accounts' },
-    { countryCode: 'in', name: 'India - Chart of Accounts' },
-    { countryCode: 'mx', name: 'Mexico - Plan de Cuentas' },
-    { countryCode: 'ni', name: 'Nicaragua - Catalogo de Cuentas' },
-    { countryCode: 'nl', name: 'Netherlands - Grootboekschema' },
-    { countryCode: 'sg', name: 'Singapore - Chart of Accounts' },
-    { countryCode: 'fr', name: 'France - Plan comptable' },
-    /*  
-    { countryCode: 'th', name: 'Thailand - Chart of Accounts' },
-    { countryCode: 'us', name: 'United States - Chart of Accounts' },
-    { countryCode: 've', name: 'Venezuela - Plan de Cuentas' },
-    { countryCode: 'za', name: 'South Africa - Chart of Accounts' },
-    { countryCode: 'de', name: 'Germany - Kontenplan' },
-    { countryCode: 'it', name: 'Italy - Piano dei Conti' },
-    { countryCode: 'es', name: 'Spain - Plan de Cuentas' },
-    { countryCode: 'pt', name: 'Portugal - Plan de Contas' },
-    { countryCode: 'pl', name: 'Poland - Rejestr Kont' },
-    { countryCode: 'ro', name: 'Romania - Contabilitate' },
-    { countryCode: 'ru', name: 'Russia - Chart of Accounts' },
-    { countryCode: 'se', name: 'Sweden - Kontoplan' },
-    { countryCode: 'ch', name: 'Switzerland - Kontenplan' },
-    { countryCode: 'tr', name: 'Turkey - Chart of Accounts' },*/
+    { locale: 'es-gt', name: 'Guatemala - Cuentas' },
+    { locale: 'hu-hu', name: 'Hungary - Chart of Accounts' },
+    { locale: 'id-id', name: 'Indonesia - Chart of Accounts' },
+    { locale: 'en-in', name: 'India - Chart of Accounts' },
+    { locale: 'es-mx', name: 'Mexico - Plan de Cuentas' },
+    { locale: 'es-ni', name: 'Nicaragua - Catalogo de Cuentas' },
+    { locale: 'nl-nl', name: 'Netherlands - Grootboekschema' },
+    { locale: 'en-sg', name: 'Singapore - Chart of Accounts' },
+    { locale: 'fr-fr', name: 'France - Plan comptable' }
   ];
 }
 
@@ -142,12 +127,12 @@ export class SetupWizard extends Doc {
         }
 
         const countryInfo = getCountryInfo();
-        const code = countryInfo[country]?.code;
+        const code = countryInfo[country]?.locale;
         if (!code) {
           return;
         }
         const coaList = getCOAList();
-        const coa = coaList.find(({ countryCode }) => countryCode === code);
+        const coa = coaList.find(({ locale }) => locale === code);
         return coa?.name ?? coaList[0].name;
       },
       dependsOn: ['country'],
